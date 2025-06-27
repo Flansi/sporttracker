@@ -131,7 +131,11 @@
     </tr>
     {% endfor %}
   </table>
-  <p><a href="{{ url_for('add_activity_route') }}">Neue Aktivität erfassen</a> | <a href="{{ url_for('import_garmin') }}">Von Garmin importieren</a></p>
+  <p>
+    <a href="{{ url_for('add_activity_route') }}">Neue Aktivität erfassen</a> |
+    <a href="{{ url_for('import_garmin') }}">Von Garmin importieren</a> |
+    <a href="{{ url_for('garmin_settings') }}">Garmin Zugang</a>
+  </p>
 
 
   <!-- ---------- Interaktivität ---------- -->
