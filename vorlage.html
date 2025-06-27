@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barfuß‑Lauf‑Wochenplan & Support‑Optionen</title>
+  <!-- Visuelles Grunddesign -->
+  <style>
+    /* ---------- Grundlayout ---------- */
+    :root {
+      --primary: #0077c8;
+      --secondary: #28a745;
+      --bg: #f0f4f8;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      --radius: 1rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: #333;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* ---------- Grid ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ---------- Card ---------- */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 119, 200, 0.08), rgba(40, 167, 69, 0.06));
+      z-index: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .day {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+      color: var(--primary);
+    }
+
+    .activity {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .options {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .options li {
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .options li::before {
+      content: "\2022"; /* Bullet */
+      color: var(--secondary);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    .toggle {
+      align-self: flex-start;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary);
+      padding: 0.25rem 0;
+      transition: color 0.2s ease;
+    }
+
+    .toggle:hover {
+      color: #005a98;
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* ---------- Responsive Tweaks ---------- */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Barfuß‑Lauf‑Wochenplan &amp; Support‑Optionen</h1>
+
+  <div class="grid">
+    <!-- Montag -->
+    <div class="card">
+      <div class="content">
+        <div class="day">Montag</div>
+        <div class="activity">Laufen (4–5 km) • <em>Barfußschuhe, Vorfußaufsatz</em></div>
+        <ul class="options hidden">
+          <li>10 min Waden‑ &amp; Achillessehnen‑Stretch</li>
+          <li>5 min Zehen‑Yoga / Fußsplaying</li>
+          <li>15 min lockeres Radfahren zur Regeneration</li>
+        </ul>
+        <button class="toggle">Optionen zeigen</button>
+      </div>
+    </div>
+
+    <!-- Dienstag -->
+    <div class="card">
+      <div class="content">
+        <div class="day">Dienstag</div>
+        <div class="activity">Gehen (7 km) • <em>Normale Schuhe, Fersenaufsatz</em></div>
+        <ul class="options hidden">
+          <li>10 min Hüft‑Mobilität (Leg Swings)</li>
+          <li>2 × 15 Wadenheben (beid-/einbeinig)</li>
+          <li>5 min Fußsohlen‑Triggern mit Ball</li>
+        </ul>
+        <button class="toggle">Optionen zeigen</button>
+      </div>
+    </div>
+
+    <!-- Mittwoch -->
+    <div class="card">
+      <div class="content">
+        <div class="day">Mittwoch</div>
+        <div class="activity">Laufen (6,5 km) • <em>Barfußschuhe</em></div>
+        <ul class="options hidden">
+          <li>15 min Balance‑Board / Einbeinstand</li>
+          <li>5 min dynamische Lauf‑Drills (A‑Skip & Butt Kicks)</li>
+          <li>5 min Ice‑Massage der Waden</li>
+        </ul>
+        <button class="toggle">Optionen zeigen</button>
+      </div>
+    </div>
+
+    <!-- Donnerstag -->
+    <div class="card">
+      <div class="content">
+        <div class="day">Donnerstag</div>
+        <div class="activity">Gehen (7 km) • <em>Normale Schuhe</em></div>
+        <ul class="options hidden">
+          <li>20 min Yoga‑Flow für die hintere Kette</li>
+          <li>3 × 20 Fußgewölbe‑Doming</li>
+          <li>5 min Wechseldusche Beine (kontrast‑hot/cold)</li>
+        </ul>
+        <button class="toggle">Optionen zeigen</button>
+      </div>
+    </div>
+
+    <!-- Freitag -->
+    <div class="card">
+      <div class="content">
+        <div class="day">Freitag</div>
+        <div class="activity">Laufen (6,5 km) • <em>Barfußschuhe</em></div>
+        <ul class="options hidden">
+          <li>Resistance‑Band‑Ankle‑Eversions 3 × 15</li>
+          <li>10 min Core‑Stabi (Plank, Side‑Plank)</li>
+          <li>5 min Atemtechnik &amp; Entspannung</li>
+        </ul>
+        <button class="toggle">Optionen zeigen</button>
+      </div>
+    </div>
+
+    <!-- Samstag -->
+    <div class="card">
+      <div class="content">
+        <div class="day">Samstag</div>
+        <div class="activity">Ruhe / Spaziergang</div>
+        <ul class="options hidden">
+          <li>30 min gemütliches Radfahren</li>
+          <li>20 min Restorative Yoga (Yin)</li>
+          <li>5 min Wadenmassage mit Massagepistole</li>
+        </ul>
+        <button class="toggle">Optionen zeigen</button>
+      </div>
+    </div>
+
+    <!-- Sonntag -->
+    <div class="card">
+      <div class="content">
+        <div class="day">Sonntag</div>
+        <div class="activity">Ruhe / Spaziergang</div>
+        <ul class="options hidden">
+          <li>Barfuß‑Spaziergang auf Sand/Wiese 20 min</li>
+          <li>10 min Achtsamkeits‑Meditation</li>
+          <li>10 min gesamtkörperliches Foam‑Rolling</li>
+        </ul>
+        <button class="toggle">Optionen zeigen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ---------- Interaktivität ---------- -->
+  <script>
+    // Umschalten der Optionslisten
+    document.querySelectorAll('.toggle').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const list = btn.previousElementSibling;
+        const hiddenNow = list.classList.toggle('hidden');
+        btn.textContent = hiddenNow ? 'Optionen zeigen' : 'Optionen verbergen';
+      });
+    });
+  </script>
+</body>
+</html>
