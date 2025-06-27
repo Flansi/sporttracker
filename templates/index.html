@@ -110,6 +110,18 @@
     </div>
   </div>
 
+  <h2>Dashboard</h2>
+  <p>Durchschnittliche Distanz der letzten 2&nbsp;Wochen:
+     {{ "%.2f"|format(avg_distance) }}&nbsp;km</p>
+  <table class="history">
+    <tr><th>Datum</th><th>Typ</th><th>Distanz (km)</th><th>Notizen</th></tr>
+    {% for a in recent_activities %}
+    <tr>
+      <td>{{ a.date }}</td><td>{{ a.type }}</td><td>{{ a.distance }}</td><td>{{ a.notes }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
   <h2>Aktuelle Aktivitäten</h2>
   <table class="history">
     <tr><th>Datum</th><th>Typ</th><th>Distanz (km)</th><th>Notizen</th></tr>

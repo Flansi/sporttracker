@@ -30,6 +30,34 @@ def get_activities():
         ]
 
 
+def get_recent_activities(days: int = 14):
+    """Return activities within the last ``days`` days."""
+    with sqlite3.connect(DB_PATH) as conn:
+        cur = conn.execute(
+            """
+            SELECT date, type, distance, notes FROM activity
+            WHERE date >= date('now', ?)
+            ORDER BY date DESC
+            """,
+            (f'-{days} days',),
+        )
+        return [
+            dict(date=row[0], type=row[1], distance=row[2], notes=row[3])
+            for row in cur.fetchall()
+        ]
+
+
+def get_average_distance(days: int = 14) -> float:
+    """Return average distance of activities in the last ``days`` days."""
+    with sqlite3.connect(DB_PATH) as conn:
+        cur = conn.execute(
+            "SELECT AVG(distance) FROM activity WHERE date >= date('now', ?)",
+            (f'-{days} days',),
+        )
+        result = cur.fetchone()[0]
+        return result or 0.0
+
+
 def add_activity(date, type_, distance, notes):
     with sqlite3.connect(DB_PATH) as conn:
         conn.execute(
@@ -66,7 +94,14 @@ def fetch_garmin_activities(username: str, password: str):
 @app.route("/")
 def index():
     activities = get_activities()
-    return render_template("index.html", activities=activities)
+    recent = get_recent_activities()
+    avg_distance = get_average_distance()
+    return render_template(
+        "index.html",
+        activities=activities,
+        recent_activities=recent,
+        avg_distance=avg_distance,
+    )
 
 
 @app.route("/add", methods=["GET", "POST"])
