@@ -1,0 +1,143 @@
+    :root {
+      --primary: #0077c8;
+      --secondary: #28a745;
+      --bg: #f0f4f8;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      --radius: 1rem;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: #333;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    /* ---------- Grid ---------- */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ---------- Card ---------- */
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0, 119, 200, 0.08), rgba(40, 167, 69, 0.06));
+      z-index: 0;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .day {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+      color: var(--primary);
+    }
+
+    .activity {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .options {
+      list-style: none;
+      padding-left: 1rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .options li {
+      margin-bottom: 0.35rem;
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .options li::before {
+      content: "\2022"; /* Bullet */
+      color: var(--secondary);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+
+    .toggle {
+      align-self: flex-start;
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--primary);
+      padding: 0.25rem 0;
+      transition: color 0.2s ease;
+    }
+
+    .toggle:hover {
+      color: #005a98;
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+
+    .history {
+      width: 100%;
+      margin-top: 2rem;
+      border-collapse: collapse;
+    }
+    .history th, .history td {
+      padding: 0.5rem;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+    .history th {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    /* ---------- Responsive Tweaks ---------- */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+    }

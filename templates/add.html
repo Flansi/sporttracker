@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neue Aktivität</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Neue Aktivität erfassen</h1>
+  <form action="{{ url_for('add_activity_route') }}" method="post">
+    <label>Datum:<br><input type="date" name="date" required></label><br><br>
+    <label>Typ:<br><input type="text" name="type"></label><br><br>
+    <label>Distanz (km):<br><input type="number" step="0.01" name="distance"></label><br><br>
+    <label>Notizen:<br><textarea name="notes"></textarea></label><br><br>
+    <button type="submit">Speichern</button>
+  </form>
+  <p><a href="{{ url_for('index') }}">Zurück</a></p>
+</body>
+</html>
