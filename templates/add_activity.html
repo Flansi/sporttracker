@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Aktivität hinzufügen{% endblock %}
+{% block content %}
+<h1>Aktivität hinzufügen</h1>
+<form method="post">
+  <div>
+    <label for="date">Datum</label>
+    <input type="date" name="date" id="date" required>
+  </div>
+  <div>
+    <label for="type">Typ</label>
+    <input type="text" name="type" id="type" required>
+  </div>
+  <div>
+    <label for="distance">Distanz (km)</label>
+    <input type="number" step="0.01" name="distance" id="distance">
+  </div>
+  <div>
+    <label for="duration">Dauer (min)</label>
+    <input type="number" step="0.1" name="duration" id="duration">
+  </div>
+  <div>
+    <label for="notes">Notizen</label>
+    <textarea name="notes" id="notes"></textarea>
+  </div>
+  <button type="submit">Speichern</button>
+</form>
+{% endblock %}

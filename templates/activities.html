@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Aktivitäten{% endblock %}
+{% block content %}
+<h1>Gespeicherte Aktivitäten</h1>
+<a href="{{ url_for('add_activity') }}">Neue Aktivität hinzufügen</a>
+<table>
+  <thead>
+    <tr><th>Datum</th><th>Typ</th><th>Distanz (km)</th><th>Dauer (min)</th><th>Notizen</th></tr>
+  </thead>
+  <tbody>
+  {% for a in activities %}
+    <tr>
+      <td>{{ a.date }}</td>
+      <td>{{ a.type }}</td>
+      <td>{{ '%.2f' % (a.distance or 0) }}</td>
+      <td>{{ '%.2f' % (a.duration or 0) }}</td>
+      <td>{{ a.notes }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+<p><a href="{{ url_for('fetch_garmin') }}">Aktivitäten von Garmin abrufen</a></p>
+{% endblock %}
